@@ -1,3 +1,3 @@
 # AngularJs
 
-Coding Angilar Js once again for fun
+Coding Angular Js once again for fun
