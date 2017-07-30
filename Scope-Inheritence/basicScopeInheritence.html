@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <script type="text/javascript">
+      var app = angular.module("sample",[])
+
+      app.controller("emp", ["$scope", function($scope){
+        $scope.Name = "Nishant"
+      }]);
+
+      app.controller("empDetails",["$scope", function($scope){
+        $scope.Sal = 4500
+      }]);
+
+      app.controller("empPayCheck",["$scope", function($scope){
+        $scope.getTaxes = function(){
+          return $scope.Sal * 0.3
+        };
+
+        $scope.netSal = function(){
+          return $scope.Sal - $scope.getTaxes()
+        };
+      }]);
+    </script>
+  </head>
+  <body ng-app="sample">
+    <div ng-controller="emp">
+      {{Name}}
+    </div>
+    <div ng-controller="empDetails">
+      {{Sal}}
+    </div>
+
+    <div ng-controller="emp">
+      {{Name}}
+      <div ng-controller="empDetails">
+        {{Name}} == {{Sal}}
+
+        <div ng-controller="empPayCheck">
+          {{Name}} == {{Sal}}
+          {{getTaxes()}}
+          {{netSal()}}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

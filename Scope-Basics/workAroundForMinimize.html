@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript">
+      var app = angular.module("sample", [])
+
+      app.controller("emp",["$scope", function(a){
+        a.Name = "Nishant";
+        a.Sal = 50000000;
+
+        a.getAnnualSal = function(){
+          return (this.Sal * 12);
+        }
+      }]);
+
+
+    </script>
+  </head>
+  <body ng-app="sample">
+    <div ng-controller="emp">
+      Hello {{Name}}, looks like you are earning {{Sal}}. Your annual sal is {{getAnnualSal()}}
+    </div>
+  </body>
+</html>
